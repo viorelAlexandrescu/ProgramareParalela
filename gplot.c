@@ -18,27 +18,25 @@ int check_X_display(void){
 gp_cmd *gp_init(void){
  //testam ca server-ul X este activ
    gp_cmd *handle;
-   if(check_X_display()) return NULL;
-   else {
-    handle = (gp_cmd*)malloc(sizeof(gp_cmd));
-    if(handle == NULL) {
+   if(check_X_display()) return NULL; 
+
+   if( (handle = (gp_cmd*)malloc(sizeof(gp_cmd))) == NULL) {
      fprintf(stderr, "Cannot initialize gnuplot. Out of memory... :(\n");
      return NULL
     }
-    if((handle->gpcmd = popen("gnuplot","w") == NULL){
+
+    if((handle->gpcmd = popen("gnuplot","w")) == NULL){
      fprintf(stderr,"Cannot start gnuplot as child process. Missing package?\n");
      free(handle); 
      return NULL; 
     }
    strcpy(handle->pstyle,"lines");
    return handle;
-   }//end of else
 }//end of gp_init definition
 
 void gp_close(gp_cmd *handle){
- int errorCode;//pclose return value
  if(check_X_display()) return;
- if((errorCode = pclose(handle->gpcmd)) == -1){
+ if(pclose(handle->gpcmd) == -1){
   fprintf(stderr,"Unknown Error for gnuplot. Child process unaccesable\n");
   free(handle);
   return;
