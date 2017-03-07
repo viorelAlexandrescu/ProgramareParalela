@@ -2,15 +2,13 @@
 // Implementare check_X_display()
 
 int check_X_display(void){
- int errorCode = 0; //function return value (O - OK, 1 - Fail)
- char *displayValue; // value returned by getenv
- 
- displayValue = getenv("DISPLAY");
- if(displayValue == NULL){
-   errorCode = 1;
+ //getenv check environment var
+ if(getenv("DISPLAY") == NULL){
    fprintf(stderr, "Undefined DISPLAY value! Is X Server Inactive?\n");
+   return 1;
  }
- return errorCode;
+ return 0;
+ //function return value (O - OK, 1 - Fail)
 }
 
 
@@ -22,7 +20,7 @@ gp_cmd *gp_init(void){
 
    if( (handle = (gp_cmd*)malloc(sizeof(gp_cmd))) == NULL) {
      fprintf(stderr, "Cannot initialize gnuplot. Out of memory... :(\n");
-     return NULL
+     return NULL;
     }
 
     if((handle->gpcmd = popen("gnuplot","w")) == NULL){
