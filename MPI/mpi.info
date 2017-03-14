@@ -1,0 +1,36 @@
+Structura unui program MPI
+
+Procesul 0 <----> Procesul 1
+ / \
+  |
+  |
+  |
+ \ /
+
+Procesul N-1
+
+
+//include libs
+#include <mpi.h> sau "mpi.h"
+
+//initialization -> cod paralel
+MPI_Init()
+
+cod paralel { master slave sau task pool }
+
+//finalization
+MPI_Finalize()
+MPI_Abort()
+
+int MPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm);
+
+int MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Status *status);
+
+//intoarce in nproc nr de procese produse de MPI_Init in comunicatorul comm
+int MPI_Comm_size(MPI_Comm comm, int *nproc);
+
+//intoarce in @rank rangul procesului curent in cadrul comunicatorului @comm
+int MPI_Comm_rank(MPI_Comm comm, int *rank);
+
+mpicc -o name_of_binary inputfile //optional -lm for linking
+mpirun/mpiexec -np how_many_processes binary_file
