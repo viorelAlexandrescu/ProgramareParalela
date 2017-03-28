@@ -1,0 +1,4 @@
+apt-get install libopenmpi
+		libopenmpi-dev
+		openmpi-tools
+		openmpi-doc
