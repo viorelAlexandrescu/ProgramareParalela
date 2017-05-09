@@ -21,7 +21,7 @@
 int main(int argc, char** argv){
 
 	int i, j, iter;
-	int my_rank. nproc,
+	int my_rank, nproc,
 		masterdata[M][N],
 		old[MP + 2][NP + 2],
 		edge[MP + 2][NP + 2],
