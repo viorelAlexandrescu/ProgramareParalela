@@ -1,0 +1,24 @@
+1. Taxonomia lui Flynn. Definitii. Descriere generala
+2. Modele de programare paralela
+3. Indicatori de performanta. Legea lui Amdahl. Formula lui Worlton
+4. MPI - scop, caracteristici generale, avantaje. Structura programelor MPI.
+5. Situatii de "deadlock" in programe de calcul paaralel. tehnici de evitare.
+6. Un sistem de calcul multiprocesor poate executa 100 Mflops utilizand 
+   procesoarele de care dispune si, respectiv, 1 Mflops activitatile 
+   secventiale. Care este performanta sistemului cand executa un program care 
+   contine 80% din cod care se poate executa in paralel si 20% din cod care 
+   se executa secvential?
+7. Un algoritm secvential prelucreaza o matrice A[n,n] in n^3/3 – n^2/6 unitati
+   de timp. Fiind date p procesoare, timpul necesar este n(n^2-1)/2p
+   a) Sa se calculeze Vp
+   b) Discutati eficienta algoritmului cand n creste (limita n -> infinit)
+   c) Pentru ce valoare a lui n algoritmul ajunge la 90% din eficienta 
+      maxima?
+
+Aplicatii
+1. Paralelizarea unui cod serial
+2. Minim (nota 5): scrierea unui cod care implementeaza operatii simple
+   de schimb de mesaje intre doua procese, de tip "send" -> "receive"
+
+
+
